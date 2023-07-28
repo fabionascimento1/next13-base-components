@@ -24,7 +24,7 @@ const button = tv({
   },
 });
 
-type ButtonProps = ComponentProps<"button"> &
+export type ButtonProps = ComponentProps<"button"> &
   VariantProps<typeof button> & {
     label: string;
     type?: "button" | "submit";
