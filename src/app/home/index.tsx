@@ -1,7 +1,17 @@
+import HeroDefault from "@/components/HeroSections/HeroDefault/HeroDefault";
+import Header from "@/components/Headers/Header/Header";
+import Logo from "@/components/Layout/Logo/Logo";
+
+const navigation = [
+  { name: "Product", href: "#" },
+  { name: "Features", href: "#" },
+  { name: "Marketplace", href: "#" },
+  { name: "Company", href: "#" },
+];
 export default function Home() {
   return (
-    <div className="flex h-screen items-center justify-center bg-zinc-950 text-zinc-50 flex-col gap-4">
-      Home
-    </div>
+    <HeroDefault
+      header={<Header logo={<Logo />} navigation={navigation} fullwidth="no" />}
+    />
   );
 }
