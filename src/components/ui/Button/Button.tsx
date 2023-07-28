@@ -10,6 +10,7 @@ const button = tv({
       secondary: "bg-purple-500 hover:bg-purple-700",
       success: "bg-green-500 hover:bg-green-700",
       error: "bg-red-500 hover:bg-red-700",
+      link: "bg-transparent text-primary-600 hover:bg-transparent",
     },
     size: {
       default: "h-10, px-4",
@@ -25,18 +26,28 @@ const button = tv({
 
 type ButtonProps = ComponentProps<"button"> &
   VariantProps<typeof button> & {
+    label: string;
     type?: "button" | "submit";
+    icon?: JSX.Element;
   };
 
 export function Button({
   contained,
   size,
+  label,
   type = "button",
+  icon,
   ...props
 }: ButtonProps) {
   return (
     <button type={type} className={button({ contained, size })} {...props}>
-      Button
+      {icon ? (
+        <div className="flex gap-2 items-center">
+          {label} {icon}
+        </div>
+      ) : (
+        <> {label}</>
+      )}
     </button>
   );
 }
